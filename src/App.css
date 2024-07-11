@@ -1,0 +1,87 @@
+/* src/App.css */
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 10px; /* Adjust padding for better mobile readability */
+}
+
+/* Header styles */
+.header {
+  background-color: rgb(190, 172, 64);
+  color: rgb(95, 143, 95)#fff;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000; /* Ensure header stays on top */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px; /* Adjust height as needed */
+  margin-right: 10px; /* Optional: Adjust spacing */
+}
+
+.menu-toggle {
+  display: none; /* Hide checkbox by default */
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 60px; /* Adjust top position as per your header height */
+    left: 0;
+    right: 0;
+    background-color: #333;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+
+  .menu-toggle:checked + .menu-icon {
+    display: block; /* Show menu icon when checked */
+  }
+
+  .menu-toggle:checked ~ .nav-menu {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
